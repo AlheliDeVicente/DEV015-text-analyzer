@@ -1,12 +1,16 @@
 const analyzer = {  
   getWordCount: (text) => {
-    //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.
+    text = text.trim
+    const words = text
+    return words.split(/\s+/)
   },
   getCharacterCount: (text) => {
-    //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.
+    return text.length
   },
   getCharacterCountExcludingSpaces: (text) => {
-    //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.
+    let totalCharactersWithoutSpace = text.replaceAll(" ", "")
+    const totalCharacters = totalCharactersWithoutSpace
+    return totalCharacters.length
   },
   getAverageWordLength: (text) => {    
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
@@ -20,3 +24,6 @@ const analyzer = {
 };
 
 export default analyzer;
+
+const text = " hello   beautiful    world  ";
+console.log(analyzer.getWordCount(text)); 
