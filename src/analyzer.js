@@ -1,22 +1,24 @@
 const analyzer = {  
   getWordCount: (text) => {
-    text = text.trim
-    const words = text
-    return words.split(/\s+/)
+    const trimmedString = text.trim();
+    const words = trimmedString.split(/\s+/);
+    return words.length 
   },
   getCharacterCount: (text) => {
-    return text.length
+    return text.length 
   },
   getCharacterCountExcludingSpaces: (text) => {
-    let totalCharactersWithoutSpace = text.replaceAll(" ", "")
-    const totalCharacters = totalCharactersWithoutSpace
-    return totalCharacters.length
+    const charsWithoutSpaces = text.replaceAll(" ", "")
+    const charsWithoutSigns = charsWithoutSpaces.replace(/[.*+!?^$"{},'()|\[\]\\]/g, "")
+    return charsWithoutSigns.length
   },
   getAverageWordLength: (text) => {    
     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.
   },
   getNumberCount: (text) => {
-    //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.
+    
+    const countNumbers = text 
+      return countNumbers.toString().match(/\d+/g).length;
   },
   getNumberSum: (text) => {
     //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.
@@ -25,5 +27,5 @@ const analyzer = {
 
 export default analyzer;
 
-const text = " hello   beautiful    world  ";
-console.log(analyzer.getWordCount(text)); 
+const text = "Baby I'm so lonely!!!!!"
+console.log(analyzer.getCharacterCountExcludingSpaces(text)); 
