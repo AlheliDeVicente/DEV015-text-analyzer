@@ -9,7 +9,7 @@ const analyzer = {
   },
   getCharacterCountExcludingSpaces: (text) => {
     const charsWithoutSpaces = text.replaceAll(" ", "")
-    const charsWithoutSigns = charsWithoutSpaces.replace(/[.*+!?^$"{},'()|\[\]\\]/g, "")
+    const charsWithoutSigns = charsWithoutSpaces.replace(/[^a-zA-Z0-9]/g, "")
     return charsWithoutSigns.length
   },
   getAverageWordLength: (text) => {    
