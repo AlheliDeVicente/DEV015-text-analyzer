@@ -1,3 +1,7 @@
 import analyzer from './analyzer.js';
-
-//TODO: escuchar eventos del DOM e invocar  los métodos del objeto `analyzer`
+const resetButton = document.getElementById("reset-button")
+const textArea = document.querySelector('textarea[name="user-input"]')
+function clean (){
+    textArea.value = ""
+}
+resetButton.addEventListener("click", clean)

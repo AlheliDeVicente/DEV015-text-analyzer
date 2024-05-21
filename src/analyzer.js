@@ -48,5 +48,5 @@ const analyzer = {
 }
 export default analyzer;
 
-const text = "Baby I'm so lonely 13 14 17!!!!!"
+const text = "Baby I'm so lonely 13 14 17 7 !!!!!"
 console.log(analyzer.getNumberSum(text)); 
