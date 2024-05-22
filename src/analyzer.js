@@ -1,52 +1,47 @@
-const analyzer = {  
+const analyzer = {    
   getWordCount: (text) => {
-    const trimmedString = text.trim();
-    const words = trimmedString.split(/\s+/);
+    const trimmedString = text.trim(); 
+    const words = trimmedString.split(/\s+/); 
     return words.length 
   },
   getCharacterCount: (text) => {
     return text.length 
   },
   getCharacterCountExcludingSpaces: (text) => {
-    const charsWithoutSpaces = text.replaceAll(" ", "")
-    const charsWithoutSigns = charsWithoutSpaces.replace(/[^a-zA-Z0-9]/g, "")
-    return charsWithoutSigns.length
+    const charsWithoutSpaces = text.replaceAll(" ", "") 
+    const charsWithoutSigns = charsWithoutSpaces.replace(/[^a-zA-Z0-9]/g, "") 
+    return charsWithoutSigns.length 
   },
   getAverageWordLength: (text) => {
-    const trimmedString = text.trim()
-    const words = trimmedString.split(/\s+/)
-      let sumWords = 0
-      for (let i = 0; i < words.length; i++){
-       sumWords += words[i].length
-      }
-    const average = sumWords/words.length
-    return average
-    }, 
+    const trimmedString = text.trim() 
+    const words = trimmedString.split(/\s+/) 
+    let sumChars = 0 
+    for (let i = 0; i < words.length; i++){ 
+      sumChars += words[i].length 
+    }
+    const average = sumChars/words.length 
+    return Number(average.toFixed(2))
+  }, 
   getNumberCount: (text) => {
-    const convertToString = text.toString()
-    const obtainNumbers = convertToString.match(/\d+/g)
-      if (obtainNumbers){
-      return obtainNumbers.length
+    const obtainNumbers = text.match(/\d+(\.\d+)?/g); 
+    if (obtainNumbers !== null){ 
+      return obtainNumbers.length 
     }
-    else {
-      return (0)
+    else { 
+      return (0) 
     }},
-
-  getNumberSum: (text) => {
-    const convertToString = text.toString()
-    const obtainNumbers = convertToString.match (/\d+/g)
-    if (obtainNumbers) {
-      let sumNumbers = 0
-      for (let i = 0; i < obtainNumbers.length; i++)
-        sumNumbers += obtainNumbers[i]
-      return (sumNumbers)
+  getNumberSum: (text) => { 
+    const obtainNumbers = text.match(/\d+(\.\d+)?/g);
+    if (obtainNumbers) { 
+      let sumNumbers = 0 
+      for (let i = 0; i < obtainNumbers.length; i++) {
+        sumNumbers += Number(obtainNumbers[i]);
+      } 
+      return (sumNumbers) 
     }
-    else {
-      return (0)
+    else { 
+      return (0) 
     }
   }
 }
 export default analyzer;
-
-const text = "Baby I'm so lonely 13 14 17 7 !!!!!"
-console.log(analyzer.getNumberSum(text)); 
