@@ -32,7 +32,7 @@ const analyzer = {
     }},
   getNumberSum: (text) => { 
     const obtainNumbers = text.match(/\d+(\.\d+)?/g);
-    if (obtainNumbers) { 
+    if (obtainNumbers !== null) { 
       let sumNumbers = 0 
       for (let i = 0; i < obtainNumbers.length; i++) {
         sumNumbers += Number(obtainNumbers[i]);
