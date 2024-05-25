@@ -1,8 +1,13 @@
 const analyzer = {    
   getWordCount: (text) => {
     const trimmedString = text.trim(); 
-    const words = trimmedString.split(/\s+/); 
-    return words.length 
+    if (trimmedString === "") { //|| /[^a-zA-Z0-9]/g // ) {
+      return (0)
+    }
+    else {
+      const words = trimmedString.split(/\s+/); 
+      return words.length 
+    }
   },
   getCharacterCount: (text) => {
     return text.length 
