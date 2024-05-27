@@ -2,7 +2,7 @@ const analyzer = {
   getWordCount: (text) => {
     const trimmedString = text.trim(); //cortar espacios al inicion y final de la cadena -obtiene string-//
     if (trimmedString === "") { //|| /[^a-zA-Z0-9]/g // ) { // qué pasa si la cadena es vacía//
-      return (0)
+      return 0
     }
     else {
       const words = trimmedString.split(/\s+/); //cortar cadena por espacios en blanco y se obtiene arrray//
@@ -28,7 +28,7 @@ const analyzer = {
     return Number(average.toFixed(2)) //se pasa a numeros y se queda el punto decimal en dos//
   }, 
   getNumberCount: (text) => {
-    const obtainNumbers = text.match(/\d+(\.\d+)?/g); //match aquello que sea numero en el string y se obtiene array//
+    const obtainNumbers = text.match(/\b\d+(\.\d+)?\b/g); //match aquello que sea numero en el string y se obtiene array//
     if (obtainNumbers !== null){  //si no es nulo//
       return obtainNumbers.length //obtener length del array//
     }
@@ -36,7 +36,7 @@ const analyzer = {
       return 0 //si es null, regresar 0//
     }},
   getNumberSum: (text) => { 
-    const obtainNumbers = text.match(/\d+(\.\d+)?/g); //lo mismo para obtener los numeros//
+    const obtainNumbers = text.match(/\b\d+(\.\d+)?\b/g); //lo mismo para obtener los numeros//
     if (obtainNumbers !== null) {
       let sumNumbers = 0 //empiezo del bucle//
       for (let i = 0; i < obtainNumbers.length; i++) { //recorrer el bucle//

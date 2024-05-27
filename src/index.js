@@ -9,15 +9,15 @@ const textArea = document.querySelector('textarea[name="user-input"]') //obtener
 const button = document.getElementById("reset-button") //obtener el botón//
 textArea.addEventListener("input", results) //evento para actualizar resultados mientras la usuaria escribe//
 function results (){
-  wordCount.textContent = analyzer.getWordCount(textArea.value) //obtener los valores de las funciones de text analyzer//
-  totalChar.textContent = analyzer.getCharacterCount(textArea.value)
-  totalCharNoSpaces.textContent = analyzer.getCharacterCountExcludingSpaces(textArea.value) //PROBLEMA: SE ME REEMPLAZA TODO EL TEXTO DIOSITO AYUDA//
-  average.textContent = analyzer.getAverageWordLength(textArea.value)
-  num.textContent = analyzer.getNumberCount(textArea.value)
-  sumNum.textContent = analyzer.getNumberSum(textArea.value)
+  wordCount.innerHTML = "Total de Palabras: " + analyzer.getWordCount(textArea.value) //obtener los valores de las funciones de text analyzer//
+  totalChar.textContent = "Total de Caracteres: " + analyzer.getCharacterCount(textArea.value)
+  totalCharNoSpaces.textContent = "Carácteres sin Espacios: " + analyzer.getCharacterCountExcludingSpaces(textArea.value) //PROBLEMA: SE ME REEMPLAZA TODO EL TEXTO DIOSITO AYUDA//
+  average.textContent = "Promedio por Palabras: " + analyzer.getAverageWordLength(textArea.value) //lo solucioné así, pero no sé si haya una mejor idea:(//
+  num.textContent = "Números: " + analyzer.getNumberCount(textArea.value)
+  sumNum.textContent = "Suma de Números: " + analyzer.getNumberSum(textArea.value)
 }
 button.addEventListener("click", clean) //evento para limpiar la caja de texto//
 function clean (){
   textArea.value = "" //limpiar el contenido de la caja//
-  results() //ajustar los valores de las funciones//
+  results() // se llama nuevamente la función para ajustar los valores de las funciones//
 }
